@@ -1,21 +1,26 @@
-///this is broken, the light doesn't turn off
 #include "DHT.h"
 
 #define DHTPIN 21
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 const int ledPin = 11;
-int message_delay=0;
-int time_since_blink=0;
-int light_status=0;
-int blink_rate=101;
-int message_rate=2000;
+int message_delay;
+int time_since_blink;
+int light_status;
+int blink_rate;
+int message_rate;
 void setup() {
   Serial.begin(9600);
   Serial.println(F("DHTxx test!"));
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, LOW);
   dht.begin();
+
+  message_delay=0;
+  time_since_blink=0;
+  light_status=0;
+  blink_rate=101;
+  message_rate=2000;
 }
 
 void loop() {
@@ -56,12 +61,12 @@ void loop() {
     Serial.println(F("°F"));
     message_delay=0;
   }
+  blink_rate=5000/((int)t);
   if (time_since_blink>blink_rate){
     time_since_blink=0;
     if (light_status==1){
       digitalWrite(ledPin, LOW);
       light_status=0;
-    digitalWrite(ledPin, HIGH);
     }else{
       digitalWrite(ledPin, HIGH);
       light_status=1;
@@ -69,5 +74,4 @@ void loop() {
   }
 
 
-  //digitalWrite(ledPin, HIGH);
 }
