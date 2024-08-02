@@ -13,7 +13,7 @@ DHT dht(DHTPIN, DHTTYPE);
 #define rxPin 7 // Teensy pin 7 <--> HC-05 Tx
 #define txPin 8 // Teensy pin 8 <--> HC-05 Rx
 //SoftwareSerial BTSerial =  SoftwareSerial(rxPin, txPin);
-
+int pos=0;
 void setup() {
   // Setup serial for monitor
   Serial.begin(9600); 
@@ -27,7 +27,7 @@ void setup() {
 }
 
 void loop() {
-  if(Serial1.available() > 0){ // Checks whether data is comming from the serial port
+  if(Serial1.available() == 0){ // Checks whether data is comming from the serial port
     digitalWrite(LEDPIN, HIGH);
     
     float h = dht.readHumidity();

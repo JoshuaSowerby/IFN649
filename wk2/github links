@@ -2,3 +2,8 @@ enter AT
 https://github.com/JunwookHeo/IFN649_Test/blob/main/HC-05_AT_Teensy.ino
 code for BT to output temp and humid
 https://github.com/JunwookHeo/IFN649_Test/blob/main/HC_DHT_Teensy_Serial1.ino
+
+AT
+AT+NAME?
+AT+NAME=...
+AT+PWD=...
