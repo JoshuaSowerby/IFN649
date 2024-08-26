@@ -2,7 +2,7 @@
 void setup(){
   //setup serial for monitor and setup Serial1 for BlueTooth
   Serial.begin(9600);
-  Serial.Begin(9600);
+  Serial.begin(9600);
 
   pinMode(LEDPIN, OUTPUT);
 }
