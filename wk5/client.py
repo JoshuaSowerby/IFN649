@@ -1,5 +1,7 @@
 import paho.mqtt.client as mqtt
+import serial 
 
+ser = serial.Serial("dev/rfcomm0", 100) 
 def on_connect(client, userdata, flags, rc): #func for making connection
     print("connected to MQQT")
     print(f"Connection result: {str(rc)}")
