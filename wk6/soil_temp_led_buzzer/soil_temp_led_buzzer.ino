@@ -16,7 +16,7 @@ DHT dht(DHTPIN, DHTTYPE);
 #define rxPin 7 // Teensy pin 7 <--> HC-05 Tx
 #define txPin 8 // Teensy pin 8 <--> HC-05 Rx
 //SoftwareSerial BTSerial =  SoftwareSerial(rxPin, txPin);
-String str="";
+//String str="";
 String buzzer_status="BUZZER_OFF";
 String led_status="LED_OFF";
 
@@ -41,28 +41,26 @@ void loop() {
     float h = dht.readHumidity();
     float t = dht.readTemperature();
     int s = analogRead(soilPin);
-    Serial.print(F("Humidity: "));
-    Serial.print(h);
-    Serial.println(F("%"));
+    Serial1.print(F("Humidity: "));
+    Serial1.print(h);
+    Serial1.println(F("%"));
     delay(100);
-    Serial.print(F("Temperature: "));
-    Serial.print(t);
-    Serial.println(F("C"));
+    Serial1.print(F("Temperature: "));
+    Serial1.print(t);
+    Serial1.println(F("C"));
     delay(100);
-    Serial.print(F("Soil: "));
-    Serial.println(s);
+    Serial1.print(F("Soil: "));
+    Serial1.println(s);
     delay(100);
-
-    
-
 
     //INPUT
     String input=Serial1.readString().substring(1);//Serial1.readString().substring(1);//this stops it from looping, idk why
+    Serial.println(input);
     if (input=="BUZZER_ON" || input=="BUZZER_OFF"){
-       buzzer_status= input;
+      buzzer_status= input;
     }
     if (input=="LED_ON" || input=="LED_OFF"){
-       led_status= input;
+      led_status= input;
     }
 
     //LED CONTROL
@@ -72,17 +70,16 @@ void loop() {
       digitalWrite(LEDPIN,LOW);
     }
     //BUZZER CONTROL
-    if(str=="BUZZER_ON"){
+    if(buzzer_status=="BUZZER_ON"){
       digitalWrite(BUZZER,HIGH);
       //Serial.println("BUZZER ON");
       delay(500);
       digitalWrite(BUZZER,LOW);
       
-    }else if (str=="BUZZER_OFF"){
+    }else if (buzzer_status=="BUZZER_OFF"){
       digitalWrite(BUZZER,LOW);
       //Serial.println("BUZZER OFF");
     }
-
     delay(1000);
 
 
