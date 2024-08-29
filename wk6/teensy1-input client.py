@@ -16,7 +16,7 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-IP="3.27.30.149"#AWS instance IP or "localhost"
+#IP="3.27.30.149"#AWS instance IP or "localhost"
 client.connect(IP,1883,60)
 
 client.loop_forever()
