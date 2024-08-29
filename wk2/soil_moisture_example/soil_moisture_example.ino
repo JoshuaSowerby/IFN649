@@ -1,5 +1,5 @@
 const int ledPin = 11;
-const int soilPin = 20;
+const int soilPin = 12;
 // the setup() method runs once, when the sketch starts
 void setup() {
   // initialize the digital pin as an output.

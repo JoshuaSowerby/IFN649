@@ -1,0 +1,5 @@
+Can send sensor data from Teensy to Raspberry Pi via BT
+week 2&3
+- upload teensy code
+- connect teensy via bluetooth
+- run bt.py

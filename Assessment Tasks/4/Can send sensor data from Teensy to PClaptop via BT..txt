@@ -1,0 +1,3 @@
+Can send sensor data from Teensy to PC/laptop via BT.
+- this is the same as before, but on my laptop intead of respberry pie,
+- just make sure all libraries are installed correctly (and need to get serial name)

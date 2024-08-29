@@ -1,0 +1,7 @@
+MQTT Server operational; LED ON OFF commands functional.
+- start aws EC2 instance
+- input ip to IP.py
+- upload teensy code
+- connect teensy BT to device running python code
+- run client
+- run publisher

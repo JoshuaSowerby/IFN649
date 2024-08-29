@@ -1,0 +1,6 @@
+week 4 content
+- aws commands:
+	mosquitto_sub-h localhost -t "test”
+	mosquitto_pub-h localhost -t test -m "hello world”
+
+using ssh client?
